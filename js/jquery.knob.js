@@ -88,6 +88,7 @@
                 }
                 s._carve().init();
                 s._configure()
+                 ._listen() // MXSPC: the scroll wheel and arrow keys will function as intended.  https://github.com/aterrien/jQuery-Knob/issues/32
                  ._draw();
             };
 
@@ -419,6 +420,8 @@
 
                 this.listen();
             } else {
+                this.$c.unbind("mousedown"); // MXSPC: the scroll wheel and arrow keys will function as intended.  https://github.com/aterrien/jQuery-Knob/issues/32
+                this.$c.unbind("touchstart"); // MXSPC: the scroll wheel and arrow keys will function as intended.  https://github.com/aterrien/jQuery-Knob/issues/32
                 this.$.attr('readonly', 'readonly');
             }
 
